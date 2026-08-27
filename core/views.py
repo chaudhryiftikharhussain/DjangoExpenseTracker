@@ -5,6 +5,11 @@ from core.models import Expense, Category
 
 # Create your views here.
 
+def dashboard(request):
+    context = {}
+    return render(request, 'dashboard.html', context=context)
+
+
 def expenses(request):
     expenses = Expense.objects.all()
     context = {
