@@ -11,6 +11,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Expense)
 class ExpenseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'uuid', 'amount', 'description', 'category', 'date')
+    list_display = ('id', 'user', 'uuid', 'amount', 'description', 'category', 'date')
     list_filter = ('category',)
     search_fields = ('uuid', 'description',)

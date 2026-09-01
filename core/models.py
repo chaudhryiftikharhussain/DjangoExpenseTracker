@@ -1,5 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 import uuid
+
+"""
+TO DO:
+1) Add a user in Expense model, as a foreign key (1-M)
+2) Create a Tags model, which is Many-to-Many with Expense
+"""
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -12,6 +20,7 @@ class Category(models.Model):
 
 
 class Expense(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     category = models.ForeignKey(
         Category,
         on_delete=models.PROTECT,
