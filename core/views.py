@@ -2,12 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from core.models import Expense, Category
 from core.forms import AddCategoryForm, AddExpenseForm
+import logging  # Python ka logging module import kar rahe hain
+
+logger = logging.getLogger("expense_tracker_core")  # Apni application ka logger hasil kar rahe hain
 
 
 # Create your views here.
 
 @login_required
 def dashboard(request):
+
+    logger.info("dashboard opening...")
+
     context = {}
     return render(request, 'dashboard.html', context=context)
 
